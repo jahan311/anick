@@ -1,17 +1,17 @@
 @charset 'utf-8';
 
 /* images */
-@mixin image($name, $path: "/public/images/", $format:"png", $bgXY:center, $bg:'',$folder:'') {
+@mixin image($name, $path: "../../../public/images/", $format:"png", $bgXY:center, $bg:'',$folder:'') {
     background: #{$bg} url("#{$path}/#{$folder}/#{$name}.#{$format}") no-repeat $bgXY;
 }
 
 /* icon */
-@mixin icon ($name, $path: "/public/images/icon/", $format:"png", $bgXY:center) {
+@mixin icon ($name, $path: "../../../public/images/icon/", $format:"png", $bgXY:center) {
     background: url("#{$path}#{$name}.#{$format}") no-repeat $bgXY;
     font-size: 0;
 }
 
-@mixin iconMask ($name, $color, $path: "/public/images/icon/", $format:"svg") {
+@mixin iconMask ($name, $color, $path: "../../public/images/icon/", $format:"svg") {
     background-color: $color;
     mask-image : url("#{$path}#{$name}.#{$format}");
     mask-size: contain;

@@ -289,7 +289,7 @@ body::-webkit-scrollbar-track {
 }
 .wrap .header h1 a {
   font-size: 0;
-  background: url("/public/images///img_logo.png") no-repeat center;
+  background: url("../../../public/images///img_logo.png") no-repeat center;
   background-size: 100%;
   width: 20rem;
   height: 4.3rem;
@@ -369,7 +369,7 @@ body::-webkit-scrollbar-track {
   opacity: 1;
 }
 .wrap .contents .scroll_down .circle {
-  background: url("/public/images///img_arrow_circle.png") no-repeat center;
+  background: url("../../../public/images///img_arrow_circle.png") no-repeat center;
   background-size: 100%;
   width: 10rem;
   height: 10rem;
@@ -382,7 +382,7 @@ body::-webkit-scrollbar-track {
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  background: url("/public/images///img_arrow.png") no-repeat center;
+  background: url("../../../public/images///img_arrow.png") no-repeat center;
   background-size: 100%;
   width: 2rem;
   height: 3.6rem;
@@ -552,7 +552,7 @@ body::-webkit-scrollbar-track {
 }
 /* 메뉴별 */
 .about .sc01 {
-  background: url("/public/images//about/img_about_visual.png") no-repeat center;
+  background: url("../../../public/images//about/img_about_visual.png") no-repeat center;
   background-size: 100%;
 }
 .about .sc02 {
@@ -565,7 +565,7 @@ body::-webkit-scrollbar-track {
 .about .sc02::before {
   content: "";
   display: block;
-  background: url("/public/images//about/img_about_gif.gif") no-repeat center;
+  background: url("../../../public/images//about/img_about_gif.gif") no-repeat center;
   background-size: 100%;
   width: 120rem;
   height: 50rem;
@@ -574,7 +574,7 @@ body::-webkit-scrollbar-track {
 .about .sc02::after {
   content: "";
   display: inline-block;
-  background: url("/public/images//about/img_about_effect.png") no-repeat center;
+  background: url("../../../public/images//about/img_about_effect.png") no-repeat center;
   background-size: 100%;
   width: 60rem;
   height: 8rem;
@@ -712,38 +712,38 @@ body::-webkit-scrollbar-track {
   margin-top: -10.3rem;
 }
 .about .sc03 .card_box ul li.icon01 i {
-  background: url("/public/images//about/img_about_icon01.png") no-repeat center;
+  background: url("../../../public/images//about/img_about_icon01.png") no-repeat center;
   background-size: 100%;
 }
 .about .sc03 .card_box ul li.icon02 {
   margin-top: 12.7rem;
 }
 .about .sc03 .card_box ul li.icon02 i {
-  background: url("/public/images//about/img_about_icon02.png") no-repeat center;
+  background: url("../../../public/images//about/img_about_icon02.png") no-repeat center;
   background-size: 100%;
 }
 .about .sc03 .card_box ul li.icon03 i {
-  background: url("/public/images//about/img_about_icon03.png") no-repeat center;
+  background: url("../../../public/images//about/img_about_icon03.png") no-repeat center;
   background-size: 100%;
 }
 .about .sc03 .card_box ul li.icon04 i {
-  background: url("/public/images//about/img_about_icon04.png") no-repeat center;
+  background: url("../../../public/images//about/img_about_icon04.png") no-repeat center;
   background-size: 100%;
 }
 .about .sc03 .card_box ul li.icon05 i {
-  background: url("/public/images//about/img_about_icon05.png") no-repeat center;
+  background: url("../../../public/images//about/img_about_icon05.png") no-repeat center;
   background-size: 100%;
 }
 .about .sc03 .card_box ul li.icon06 i {
-  background: url("/public/images//about/img_about_icon06.png") no-repeat center;
+  background: url("../../../public/images//about/img_about_icon06.png") no-repeat center;
   background-size: 100%;
 }
 .about .sc03 .card_box ul li.icon07 i {
-  background: url("/public/images//about/img_about_icon07.png") no-repeat center;
+  background: url("../../../public/images//about/img_about_icon07.png") no-repeat center;
   background-size: 100%;
 }
 .about .sc03 .card_box ul li.icon08 i {
-  background: url("/public/images//about/img_about_icon08.png") no-repeat center;
+  background: url("../../../public/images//about/img_about_icon08.png") no-repeat center;
   background-size: 100%;
 }
 .about .sc03 .ripple {
