@@ -1,0 +1,102 @@
+@charset 'utf-8';
+
+/* images */
+@mixin image($name, $path: "/public/images/", $format:"png", $bgXY:center, $bg:'',$folder:'') {
+    background: #{$bg} url("#{$path}/#{$folder}/#{$name}.#{$format}") no-repeat $bgXY;
+}
+
+/* icon */
+@mixin icon ($name, $path: "/public/images/icon/", $format:"png", $bgXY:center) {
+    background: url("#{$path}#{$name}.#{$format}") no-repeat $bgXY;
+    font-size: 0;
+}
+
+@mixin iconMask ($name, $color, $path: "/public/images/icon/", $format:"svg") {
+    background-color: $color;
+    mask-image : url("#{$path}#{$name}.#{$format}");
+    mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    font-size: 0;
+}
+
+@mixin img_logo {
+    @include image($name:'img_logo');
+    background-size: 100%;
+}
+
+@mixin img_arrow_circle {
+    @include image($name:'img_arrow_circle');
+    background-size: 100%;
+}
+
+@mixin img_arrow {
+    @include image($name:'img_arrow');
+    background-size: 100%;
+}
+
+/* about */
+@mixin img_about_visual {
+    @include image($name:'img_about_visual', $folder:'about');
+    background-size: 100%;
+}
+
+@mixin img_about_gif {
+    @include image($name:'img_about_gif', $format:"gif", $folder:'about');
+    background-size: 100%;
+}
+
+@mixin img_about_effect {
+    @include image($name:'img_about_effect', $folder:'about');
+    background-size: 100%;
+}
+
+@mixin img_about_icon01 {
+    @include image($name:'img_about_icon01', $folder:'about');
+    background-size: 100%;
+}
+
+@mixin img_about_icon02 {
+    @include image($name:'img_about_icon02', $folder:'about');
+    background-size: 100%;
+}
+
+@mixin img_about_icon03 {
+    @include image($name:'img_about_icon03', $folder:'about');
+    background-size: 100%;
+}
+
+@mixin img_about_icon04 {
+    @include image($name:'img_about_icon04', $folder:'about');
+    background-size: 100%;
+}
+
+@mixin img_about_icon05 {
+    @include image($name:'img_about_icon05', $folder:'about');
+    background-size: 100%;
+}
+
+@mixin img_about_icon06 {
+    @include image($name:'img_about_icon06', $folder:'about');
+    background-size: 100%;
+}
+
+@mixin img_about_icon07 {
+    @include image($name:'img_about_icon07', $folder:'about');
+    background-size: 100%;
+}
+
+@mixin img_about_icon08 {
+    @include image($name:'img_about_icon08', $folder:'about');
+    background-size: 100%;
+}
+
+
+
+
+
+// @mixin ico_arrow_down($width, $height, $color: auto) {
+//     @include iconMask($name:'ico_arrow_down', $color : $color );
+//     width: rem($width);
+//     height: rem($height);
+// }
