@@ -1,0 +1,173 @@
+@charset 'utf-8';
+
+body {
+    @include scroll;
+}
+
+::selection {
+    background: $point-color;
+    color: $white;
+}
+.wrap {
+    position: relative;
+
+    .inner {
+        position: relative;
+        width: 100%;
+        max-width: rem(1400);
+        margin: 0 auto;
+    }
+
+    .header {
+        @include fixed(0, 0);
+        width: 100%;
+        height: rem(103);
+        background: transparent;
+        transition: all 0.3s ease-in-out;
+        z-index: 100;
+    
+        &.scroll {
+            background: rgba(0,0,0,0.7)
+        }
+    
+        .inner {
+            @include flex(center, space-between);
+            height: 100%;
+        }
+    
+        h1 {
+            a {
+                font-size: 0;
+                @include img_logo;
+                width: rem(200);
+                height: rem(43);
+            }
+        }
+    
+        nav {
+            ul {
+                @include flex(center, flex-end, rem(60));
+                li {
+                    a {
+                        @include ftB;
+                        font-size: rem(18);
+                        color: $nav-ft-color;
+                        transition: all 0.3s ease-in-out;
+                    }
+                    &.on {
+                        a {
+                            color: $white;
+                        }
+                    }
+                    &:hover {
+                        a {
+                            color: $point-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .footer {
+        background: $black;
+        .inner {
+            padding: rem(70) 0;
+        }
+
+        p {
+            @include ftM;
+            font-size: rem(18);
+            color: $ft-gray-color;
+            text-align: center;
+        }
+    }
+
+    .contents {
+        position: relative;
+        width: 100%;
+        background: $black;
+        overflow: hidden;
+
+        .line {
+            @include centerX($top:0);
+            width: 0.5px;
+            height: 100%;
+            background: $white;
+            opacity: 0.3;
+        }
+
+        .scroll_down {
+            visibility: hidden;
+            opacity: 0;
+            @include fixed($top: 160px, $right: 80px);
+            z-index: 1;
+            transition: opacity 0.7s ease, visibility 0.7s ease;
+            
+            &.show {
+                visibility: visible;
+                opacity: 1;
+            }
+
+            .circle {
+                @include img_arrow_circle;
+                width: rem(100);
+                height: rem(100);
+                animation: circle-spin infinite forwards 10s linear;
+            }
+            .arrow {
+                @include centerXY;
+                @include img_arrow;
+                width: rem(20);
+                height: rem(36);
+            }
+        }
+
+        .sc01 {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            @include flex(center, center, 60px, column);
+
+            h2 {
+                @include ftB;
+                font-size: rem(160);
+                color: $white;
+                text-align: center;
+            }
+
+            .scroll {
+                width: 45px;
+                height: 77px;
+                border-radius: 38px;
+                border: 1px solid $white;
+                backdrop-filter: blur(10px);
+                padding-top: 22px;
+                .arrow {
+                    display: block;
+                    width: 13px;
+                    height: 13px;
+                    border: 2px solid $white;
+                    border-top: none;
+                    border-right: none;
+                    transform: rotate(-45deg);
+                    margin: 0 auto;
+                    margin-bottom: -4px;
+                    animation: scroll-arrow infinite 3s forwards;
+
+                    &:nth-of-type(1) {
+                        animation-delay: 0.5s;
+                    }
+
+                    &:nth-of-type(2) {
+                        animation-delay: 1s;
+                    }
+
+                    &:nth-of-type(3) {
+                        animation-delay: 1.5s;
+                    }
+                }
+            }
+        }
+    }
+}
