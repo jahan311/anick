@@ -1,7 +1,7 @@
 @charset 'utf-8';
 @use "sass:math";
 
-$font-name: 'Pretendard';
+$en-font-name: 'Montserrat';
 $base-rem-size: 10;
 
 // 단위 제거
@@ -16,18 +16,25 @@ $base-rem-size: 10;
 
 /* font */
 @mixin ftR {
-    font-family: $font-name;
     font-weight: 400;
 }
 
 @mixin ftM {
-    font-family: $font-name;
     font-weight: 500;
 }
 
 @mixin ftB {
-    font-family: $font-name;
     font-weight: 700;
+}
+
+@mixin enftM {
+    font-family: $en-font-name;
+    font-weight: 500;
+}
+
+@mixin enftSB {
+    font-family: $en-font-name;
+    font-weight: 600;
 }
 
 @mixin ftSize($size) {

@@ -1,0 +1,40 @@
+@charset 'utf-8';
+
+@media (max-width: 768px) {
+    .temporary {
+        position: relative;
+        width: 100%;
+        max-width: 768px;
+        margin: 0 auto;
+        background: #191919;
+        .img_wrap {
+            &.mo {
+                display: block !important;
+                height: 100% !important;
+            }
+
+            &.pc {
+                display: none;
+            }
+            img {
+                object-fit: fill;
+            }
+        }
+    }
+}
+
+@media (max-width: 500px){
+    .temporary {
+        footer {
+            padding: 25px 20px 100px;
+            p {
+                font-size: 14px;
+                word-break: keep-all;
+
+                &:last-child {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
