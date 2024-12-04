@@ -35,6 +35,138 @@
     background-size: 100%;
 }
 
+/* main */
+@mixin img_main_about {
+    @include image($name:'img_main_about', $folder:'main', $bgXY: left top,  $bg: #8100a7);
+    background-size: contain;
+}
+
+@mixin img_main_about_logo {
+    @include image($name:'img_main_about_logo', $folder:'main');
+    background-size: contain;
+}
+
+@mixin img_main_about_ef_01 {
+    @include image($name:'img_main_about_ef_01', $folder:'main');
+    background-size: 100%;
+}
+
+@mixin img_main_about_ef_02 {
+    @include image($name:'img_main_about_ef_02', $folder:'main');
+    background-size: 100%;
+}
+
+@mixin img_main_about_ef_03 {
+    @include image($name:'img_main_about_ef_03', $folder:'main');
+    background-size: 100%;
+}
+
+@mixin img_main_about_ef_04 {
+    @include image($name:'img_main_about_ef_04', $folder:'main');
+    background-size: 100%;
+}
+
+@mixin img_main_about_ef_05 {
+    @include image($name:'img_main_about_ef_05', $folder:'main');
+    background-size: 100%;
+}
+
+@mixin img_main_about_ef_06 {
+    @include image($name:'img_main_about_ef_06', $folder:'main');
+    background-size: 100%;
+}
+
+@mixin img_main_about_ef_07 {
+    @include image($name:'img_main_about_ef_07', $folder:'main');
+    background-size: 100%;
+}
+
+@mixin img_main_about_ef_08 {
+    @include image($name:'img_main_about_ef_08', $folder:'main');
+    background-size: 100%;
+}
+
+@mixin img_main_about_ef_09 {
+    @include image($name:'img_main_about_ef_09', $folder:'main');
+    background-size: 100%;
+}
+
+@mixin img_main_about_ef_10 {
+    @include image($name:'img_main_about_ef_10', $folder:'main');
+    background-size: 100%;
+}
+
+@mixin img_main_about_ef_11 {
+    @include image($name:'img_main_about_ef_11', $folder:'main');
+    background-size: 100%;
+}
+
+@mixin img_main_about_ef_12 {
+    @include image($name:'img_main_about_ef_12', $folder:'main');
+    background-size: 100%;
+}
+
+@mixin img_main_about_ef_13 {
+    @include image($name:'img_main_about_ef_13', $folder:'main');
+    background-size: 100%;
+}
+
+@mixin img_main_biz {
+    @include image($name:'img_main_biz', $folder:'main');
+    background-size: cover;
+}
+
+@mixin img_main_contact {
+    @include image($name:'img_main_contact', $folder:'main');
+    background-size: cover;
+}
+
+@mixin img_main_portfolio {
+    @include image($name:'img_main_portfolio', $folder:'main');
+    background-size: cover;
+}
+
+@mixin img_main_tech {
+    @include image($name:'img_main_tech', $folder:'main');
+    background-size: cover;
+}
+
+@mixin img_main_tech_txt {
+    @include image($name:'img_main_tech_txt', $folder:'main');
+    background-size: 200%;
+}
+
+@mixin img_main_ai {
+    @include image($name:'img_main_ai', $folder:'main');
+    background-size: cover;
+}
+
+@mixin img_main_ad {
+    @include image($name:'img_main_ad', $folder:'main');
+    background-size: cover;
+}
+
+@mixin img_main_gamification {
+    @include image($name:'img_main_gamification', $folder:'main');
+    background-size: cover;
+}
+
+@mixin img_main_gami_txt {
+    @include image($name:'img_main_gami_txt', $folder:'main');
+    background-size: 100%;
+}
+
+@mixin img_main_weare {
+    @include image($name:'img_main_weare', $folder:'main');
+    background-size: cover;
+}
+
+
+
+
+
+
+
 /* about */
 @mixin img_about_visual {
     @include image($name:'img_about_visual', $folder:'about');

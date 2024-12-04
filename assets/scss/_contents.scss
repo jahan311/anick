@@ -8,8 +8,11 @@ body {
     background: $point-color;
     color: $white;
 }
+
 .wrap {
     position: relative;
+    scroll-behavior: smooth;
+    background: $black;
 
     .inner {
         position: relative;
@@ -70,9 +73,9 @@ body {
     }
 
     .footer {
-        background: $black;
+        background: $bg-color;
         .inner {
-            padding: rem(70) 0;
+            padding: rem(25) rem(20) rem(70);
         }
 
         p {
@@ -80,13 +83,22 @@ body {
             font-size: rem(18);
             color: $ft-gray-color;
             text-align: center;
+            line-height: rem(24);
+            word-break: keep-all;
+
+            a {
+                display: inline-block;
+                @include ftB;
+                font-size: rem(18);
+                color: $white;
+                text-align: center;
+            }
         }
     }
 
     .contents {
         position: relative;
         width: 100%;
-        background: $black;
         overflow: hidden;
 
         .line {
@@ -166,6 +178,36 @@ body {
                     &:nth-of-type(3) {
                         animation-delay: 1.5s;
                     }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .wrap {
+        .footer {
+            p {
+                font-size: rem(22);
+                line-height: rem(36);
+    
+                a {
+                    font-size: rem(22);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .wrap {
+        .footer {
+            p {
+                font-size: rem(14);
+                line-height: rem(24);
+    
+                a {
+                    font-size: rem(14);
                 }
             }
         }

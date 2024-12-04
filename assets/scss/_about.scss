@@ -1,5 +1,6 @@
 @charset 'utf-8';
 .about {
+    background: $black;
     .sc01 {
         @include img_about_visual;
     }
