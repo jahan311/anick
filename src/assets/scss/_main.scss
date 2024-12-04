@@ -78,7 +78,7 @@
                         width: 100%;
                         height: 100%;
                         background: $black;
-                        opacity: 0.8;
+                        opacity: 0.5;
                     }
                 }
 
@@ -247,7 +247,7 @@
                         width: 100%;
                         height: 100%;
                         background: $black;
-                        opacity: 0.8;
+                        opacity: 0.6;
                     }
                 }
 
@@ -322,19 +322,33 @@
                 grid-column: span 2;
 
                 .bg {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
                     @include img_main_ai;
+                    mix-blend-mode: overlay;
+                    z-index: 2;
 
-                    &::before {
-                        @include content;
-                        @include absolute;
-                        width: 100%;
-                        height: 100%;
-                        background: $black;
-                        opacity: 0.8;
-                    }
+                    // &::before {
+                    //     @include content;
+                    //     @include absolute;
+                    //     width: 100%;
+                    //     height: 100%;
+                    //     background: $black;
+                    //     opacity: 0.1;
+                    // }
+                }
+
+                .blur_cursor_ai {
+                    display: none;
+                    position: absolute;
+                    width: rem(560);
+                    height: rem(560);
+                    transform: translate(-50%, -50%);
+                    background: radial-gradient(circle,
+                            rgba(255, 255, 255, 0.5) 0%,
+                            rgba(0, 0, 0, 0) 60%);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 1;
+                    mix-blend-mode: exclusion;
                 }
 
                 .tit {
@@ -353,7 +367,7 @@
                 &:hover {
                     .bg {
                         &::before {
-                            opacity: 0;
+                            opacity: 0.2;
                         }
                     }
 
@@ -446,7 +460,7 @@
                         width: 100%;
                         height: 100%;
                         background: $black;
-                        opacity: 0.8;
+                        opacity: 0.6;
                     }
                 }
 
@@ -535,7 +549,6 @@
                     aspect-ratio: 477/447;
 
                     .bg {
-                        @include img_main_biz;
                         mix-blend-mode: normal;
                         z-index: 0;
     
@@ -619,6 +632,13 @@
                 &.contact {
                     width: calc(49.06% - rem(7.5));
                     aspect-ratio: 340/322;
+
+                    &.in-view {
+                        .bg {
+                            animation: zoom-in 1s alternate;
+                            transform-origin: center;
+                        }
+                    }
     
                     .tit {
                         @include ftSize(40);
@@ -640,7 +660,7 @@
                     width: calc(50.94% - rem(7.5));
                     aspect-ratio: 353/322;
 
-                    .bg {    
+                    .bg {
                         &::before {
                             content: none;
                         }
@@ -648,11 +668,22 @@
     
                     .tit {
                         @include ftSize(64);
-                        transition: none;
-                        transform: rotate(45deg);
                         opacity: 0.8;
+                        transition: transform 1s ease;
                         span {
                             color: $ft-portfolio-color;
+                        }
+                    }
+
+                    &:hover {
+                        .tit {
+                            transform: none;
+                        }
+                    }
+
+                    &.in-view {
+                        .tit {
+                            transform: rotate(45deg);
                         }
                     }
                 }
@@ -665,11 +696,15 @@
                 &.ai {
                     width: calc(66.67% - rem(7.5));
                     aspect-ratio: 462/197;
+                    opacity: 0;
+
+                    &.in-view {
+                        animation: slide-down 0.6s forwards;
+                    }
 
                     .bg {
-                        &::before {
-                            content: none;
-                        }
+                        mix-blend-mode: normal;
+                        z-index: 0;
                     }
     
                     .tit {
@@ -678,7 +713,7 @@
                         @include ftSize(31);
                         line-height: rem(35);
                         opacity: 0.8;
-                        color: $ft-portfolio-color ;
+                        color: $ft-portfolio-color;
                         text-shadow: 0 3px 30px rgba(0, 0, 0, 0.4);
                     }
                 }
@@ -686,6 +721,11 @@
                 &.ad {
                     width: calc(33.33% - rem(7.5));
                     aspect-ratio: 231/197;
+                    opacity: 0;
+
+                    &.in-view {
+                        animation: slide-right 0.6s forwards;
+                    }
                     .bg {
                         @include img_main_ad;
                         transition: all 0.3s linear;
@@ -710,6 +750,12 @@
                 &.gamification {
                     width: calc(49.06% - rem(7.5));
                     aspect-ratio: 340/289;
+                    opacity: 0;
+
+                    &.in-view {
+                        animation: slide-left 0.6s forwards;
+                    }
+
                     .tit {
                         @include ftSize(41);
     
@@ -729,6 +775,11 @@
                 &.weare {
                     width: calc(50.94% - rem(7.5));
                     aspect-ratio: 353/289;
+                    opacity: 0;
+
+                    &.in-view {
+                        animation: slide-top 0.6s forwards;
+                    }
 
                     .bg {
                         &::before {
@@ -788,10 +839,8 @@
                     aspect-ratio: 325/305;
 
                     .bg {
-                        @include img_main_biz;
                         mix-blend-mode: normal;
                         z-index: 0;
-    
                         &::before {
                             content: none;
                         }
@@ -885,11 +934,21 @@
     
                     .tit {
                         @include ftSize(40);
-                        transition: none;
-                        transform: rotate(25deg);
                         opacity: 0.8;
+                        transition: transform 1s ease;
                         span {
                             color: $ft-portfolio-color;
+                        }
+                    }
+
+                    &:hover {
+                        .tit {
+                            transform: none;
+                        }
+                    }
+                    &.in-view {
+                        .tit {
+                            transform: rotate(25deg);
                         }
                     }
                 }
@@ -914,14 +973,24 @@
                 &.ai {
                     width: calc(50% - rem(5));
                     aspect-ratio: 158/158;
+                    opacity: 0;
+
+                    &.in-view {
+                        animation: slide-down 0.6s forwards;
+                    }
 
                     .bg {
+                        mix-blend-mode: normal;
+                        z-index: 0;
+    
                         &::before {
                             content: none;
                         }
                     }
     
                     .tit {
+                        opacity: 0.8;
+                        color: $ft-portfolio-color;
                         left: rem(10);
                         bottom: rem(10);
                         @include ftSize(20);
@@ -932,6 +1001,11 @@
                 &.ad {
                     width: calc(50% - rem(5));
                     aspect-ratio: 158/158;
+                    opacity: 0;
+
+                    &.in-view {
+                        animation: slide-right 0.6s forwards;
+                    }
     
                     .tit {
                         @include ftSize(26);
@@ -952,6 +1026,12 @@
                 &.gamification {
                     width: calc(50% - rem(5));
                     aspect-ratio: 158/158;
+                    opacity: 0;
+
+                    &.in-view {
+                        animation: slide-left 0.6s forwards;
+                    }
+
                     .tit {
                         @include ftSize(20);
     
@@ -972,6 +1052,11 @@
                 &.weare {
                     width: calc(50% - rem(5));
                     aspect-ratio: 158/158;
+                    opacity: 0;
+
+                    &.in-view {
+                        animation: slide-top 0.6s forwards;
+                    }
 
                     .bg {
                         &::before {

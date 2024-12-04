@@ -1,43 +1,44 @@
+//pc interaction
 document.addEventListener("DOMContentLoaded", function () {
     const mediaQuery = window.matchMedia("(min-width: 1024px)");
 
-    function initBizBlurEffect() {
-        const biz = document.querySelector(".grid_item.biz");
-        const blurCursor = document.querySelector(".blur_cursor");
-
+    function initBlurEffect(selector, cursorSelector) {
+        const item = document.querySelector(selector);
+        const blurCursor = document.querySelector(cursorSelector);
+    
         function addEventListeners() {
-            biz.addEventListener("mouseenter", handleMouseEnter);
-            biz.addEventListener("mouseleave", handleMouseLeave);
-            biz.addEventListener("mousemove", handleMouseMove);
+            item.addEventListener("mouseenter", handleMouseEnter);
+            item.addEventListener("mouseleave", handleMouseLeave);
+            item.addEventListener("mousemove", handleMouseMove);
         }
-
+    
         function removeEventListeners() {
-            biz.removeEventListener("mouseenter", handleMouseEnter);
-            biz.removeEventListener("mouseleave", handleMouseLeave);
-            biz.removeEventListener("mousemove", handleMouseMove);
+            item.removeEventListener("mouseenter", handleMouseEnter);
+            item.removeEventListener("mouseleave", handleMouseLeave);
+            item.removeEventListener("mousemove", handleMouseMove);
         }
-
+    
         function handleMouseEnter() {
             blurCursor.style.display = "block";
         }
-
+    
         function handleMouseLeave() {
             blurCursor.style.display = "none";
         }
-
+    
         function handleMouseMove(e) {
-            const bizRect = biz.getBoundingClientRect();
-            const cursorX = e.clientX - bizRect.left;
-            const cursorY = e.clientY - bizRect.top;
-
+            const itemRect = item.getBoundingClientRect();
+            const cursorX = e.clientX - itemRect.left;
+            const cursorY = e.clientY - itemRect.top;
+    
             blurCursor.style.left = `${cursorX}px`;
             blurCursor.style.top = `${cursorY}px`;
         }
-
+    
         if (mediaQuery.matches) {
             addEventListeners();
         }
-
+    
         mediaQuery.addEventListener("change", (e) => {
             if (e.matches) {
                 addEventListeners();
@@ -69,17 +70,24 @@ document.addEventListener("DOMContentLoaded", function () {
             techVideo.pause();
         }
 
-        if (mediaQuery.matches) {
-            addEventListeners();
-        }
-
-        mediaQuery.addEventListener("change", (e) => {
+        function handleMediaQueryChange(e) {
             if (e.matches) {
+                // min-width 1024px: 마우스 오버로 제어
+                techVideo.pause(); // 초기화
                 addEventListeners();
             } else {
+                // max-width 1023px: 자동 재생
                 removeEventListeners();
+                techVideo.play();
             }
-        });
+        }
+
+        if (mediaQuery.matches) {
+            addEventListeners();
+        } else {
+            techVideo.play();
+        }
+        mediaQuery.addEventListener("change", handleMediaQueryChange);
     }
 
     function initGridItemClick() {
@@ -118,12 +126,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    initBizBlurEffect();
+    initBlurEffect(".grid_item.biz", ".blur_cursor");
+    initBlurEffect(".grid_item.ai", ".blur_cursor_ai");
     initTechVideoControl();
     initGridItemClick();
 });
 
-$(document).ready(function () {
+//footer scroll
+document.addEventListener("DOMContentLoaded", function () {
     const mediaQuery = window.matchMedia("(min-width: 1024px)");
     let isFooterVisible = false;
     let footerHeight = $('.footer').outerHeight();
@@ -167,3 +177,53 @@ $(document).ready(function () {
         footerHeight = $('.footer').outerHeight();
     });
 });
+
+
+//mob animation
+document.addEventListener("DOMContentLoaded", () => {
+    const targetElements = document.querySelectorAll(
+        ".grid_item.contact, .grid_item.portfolio, .grid_item.ai, .grid_item.ad, .grid_item.gamification, .grid_item.weare"
+    );
+
+    const mediaQuery = window.matchMedia("(max-width: 1023px)");
+    let observer = null;
+
+    const createObserver = () => {
+        if (observer) {
+            observer.disconnect();
+        }
+
+        observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("in-view");
+                    } else {
+                        entry.target.classList.remove("in-view");
+                    }
+                });
+            },
+            {
+                rootMargin: "0px 0px -200px 0px",
+            }
+        );
+
+        targetElements.forEach((element) => observer.observe(element)); 
+    };
+
+    const checkMediaQuery = (e) => {
+        if (e.matches) {
+            createObserver();
+        } else {
+            if (observer) {
+                observer.disconnect();
+                targetElements.forEach((element) =>
+                    element.classList.remove("in-view")
+                );
+            }
+        }
+    };
+    checkMediaQuery(mediaQuery);
+    mediaQuery.addEventListener("change", checkMediaQuery);
+});
+

@@ -242,6 +242,7 @@ body::-webkit-scrollbar-track {
 .wrap {
   position: relative;
   scroll-behavior: smooth;
+  background: #000000;
 }
 .wrap .inner {
   position: relative;
@@ -593,6 +594,122 @@ body::-webkit-scrollbar-track {
             transform: translateY(-50%);
   }
 }
+@-webkit-keyframes zoom-in {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+}
+@keyframes zoom-in {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+}
+@-webkit-keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes slide-left {
+  0% {
+    -webkit-transform: translateX(-50px);
+            transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-left {
+  0% {
+    -webkit-transform: translateX(-50px);
+            transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes slide-down {
+  0% {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-down {
+  0% {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes slide-right {
+  0% {
+    -webkit-transform: translateX(50px);
+            transform: translateX(50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-right {
+  0% {
+    -webkit-transform: translateX(50px);
+            transform: translateX(50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
 /* 메뉴별 */
 .main {
   width: 100vw;
@@ -678,7 +795,7 @@ body::-webkit-scrollbar-track {
   width: 100%;
   height: 100%;
   background: #000000;
-  opacity: 0.8;
+  opacity: 0.5;
 }
 .main .grid_container .grid_item.biz .blur_cursor {
   display: none;
@@ -869,7 +986,7 @@ body::-webkit-scrollbar-track {
   width: 100%;
   height: 100%;
   background: #000000;
-  opacity: 0.8;
+  opacity: 0.6;
 }
 .main .grid_container .grid_item.portfolio .tit {
   position: relative;
@@ -952,20 +1069,23 @@ body::-webkit-scrollbar-track {
   grid-column: span 2;
 }
 .main .grid_container .grid_item.ai .bg {
-  position: absolute;
-  top: 0;
-  left: 0;
   background: url("../../../public/images//main/img_main_ai.png") no-repeat center;
   background-size: cover;
+  mix-blend-mode: overlay;
+  z-index: 2;
 }
-.main .grid_container .grid_item.ai .bg::before {
-  content: "";
-  display: inline-block;
+.main .grid_container .grid_item.ai .blur_cursor_ai {
+  display: none;
   position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #000000;
-  opacity: 0.8;
+  width: 56rem;
+  height: 56rem;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(0, 0, 0, 0) 60%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: exclusion;
 }
 .main .grid_container .grid_item.ai .tit {
   position: absolute;
@@ -981,7 +1101,7 @@ body::-webkit-scrollbar-track {
   color: #ffffff;
 }
 .main .grid_container .grid_item.ai:hover .bg::before {
-  opacity: 0;
+  opacity: 0.2;
 }
 .main .grid_container .grid_item.ai:hover .tit {
   opacity: 0.8;
@@ -1078,7 +1198,7 @@ body::-webkit-scrollbar-track {
   width: 100%;
   height: 100%;
   background: #000000;
-  opacity: 0.8;
+  opacity: 0.6;
 }
 .main .grid_container .grid_item.weare .tit {
   position: absolute;
@@ -1163,8 +1283,6 @@ body::-webkit-scrollbar-track {
     aspect-ratio: 477/447;
   }
   .main .grid_container .grid_item.biz .bg {
-    background: url("../../../public/images//main/img_main_biz.png") no-repeat center;
-    background-size: cover;
     mix-blend-mode: normal;
     z-index: 0;
   }
@@ -1244,6 +1362,12 @@ body::-webkit-scrollbar-track {
     width: calc(49.06% - 0.75rem);
     aspect-ratio: 340/322;
   }
+  .main .grid_container .grid_item.contact.in-view .bg {
+    -webkit-animation: zoom-in 1s alternate;
+            animation: zoom-in 1s alternate;
+    -webkit-transform-origin: center;
+            transform-origin: center;
+  }
   .main .grid_container .grid_item.contact .tit {
     font-size: 4rem;
   }
@@ -1264,14 +1388,22 @@ body::-webkit-scrollbar-track {
   }
   .main .grid_container .grid_item.portfolio .tit {
     font-size: 6.4rem;
-    -webkit-transition: none;
-    transition: none;
-    -webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
     opacity: 0.8;
+    -webkit-transition: -webkit-transform 1s ease;
+    transition: -webkit-transform 1s ease;
+    transition: transform 1s ease;
+    transition: transform 1s ease, -webkit-transform 1s ease;
   }
   .main .grid_container .grid_item.portfolio .tit span {
     color: #ff9100;
+  }
+  .main .grid_container .grid_item.portfolio:hover .tit {
+    -webkit-transform: none;
+            transform: none;
+  }
+  .main .grid_container .grid_item.portfolio.in-view .tit {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
   }
   .main .grid_container .grid_item.tech {
     width: 100%;
@@ -1280,9 +1412,15 @@ body::-webkit-scrollbar-track {
   .main .grid_container .grid_item.ai {
     width: calc(66.67% - 0.75rem);
     aspect-ratio: 462/197;
+    opacity: 0;
   }
-  .main .grid_container .grid_item.ai .bg::before {
-    content: none;
+  .main .grid_container .grid_item.ai.in-view {
+    -webkit-animation: slide-down 0.6s forwards;
+            animation: slide-down 0.6s forwards;
+  }
+  .main .grid_container .grid_item.ai .bg {
+    mix-blend-mode: normal;
+    z-index: 0;
   }
   .main .grid_container .grid_item.ai .tit {
     left: 2rem;
@@ -1296,6 +1434,11 @@ body::-webkit-scrollbar-track {
   .main .grid_container .grid_item.ad {
     width: calc(33.33% - 0.75rem);
     aspect-ratio: 231/197;
+    opacity: 0;
+  }
+  .main .grid_container .grid_item.ad.in-view {
+    -webkit-animation: slide-right 0.6s forwards;
+            animation: slide-right 0.6s forwards;
   }
   .main .grid_container .grid_item.ad .bg {
     background: url("../../../public/images//main/img_main_ad.png") no-repeat center;
@@ -1317,6 +1460,11 @@ body::-webkit-scrollbar-track {
   .main .grid_container .grid_item.gamification {
     width: calc(49.06% - 0.75rem);
     aspect-ratio: 340/289;
+    opacity: 0;
+  }
+  .main .grid_container .grid_item.gamification.in-view {
+    -webkit-animation: slide-left 0.6s forwards;
+            animation: slide-left 0.6s forwards;
   }
   .main .grid_container .grid_item.gamification .tit {
     font-size: 4.1rem;
@@ -1332,6 +1480,11 @@ body::-webkit-scrollbar-track {
   .main .grid_container .grid_item.weare {
     width: calc(50.94% - 0.75rem);
     aspect-ratio: 353/289;
+    opacity: 0;
+  }
+  .main .grid_container .grid_item.weare.in-view {
+    -webkit-animation: slide-top 0.6s forwards;
+            animation: slide-top 0.6s forwards;
   }
   .main .grid_container .grid_item.weare .bg::before {
     content: none;
@@ -1393,8 +1546,6 @@ body::-webkit-scrollbar-track {
     aspect-ratio: 325/305;
   }
   .main .grid_container .grid_item.biz .bg {
-    background: url("../../../public/images//main/img_main_biz.png") no-repeat center;
-    background-size: cover;
     mix-blend-mode: normal;
     z-index: 0;
   }
@@ -1482,14 +1633,22 @@ body::-webkit-scrollbar-track {
   }
   .main .grid_container .grid_item.portfolio .tit {
     font-size: 4rem;
-    -webkit-transition: none;
-    transition: none;
-    -webkit-transform: rotate(25deg);
-            transform: rotate(25deg);
     opacity: 0.8;
+    -webkit-transition: -webkit-transform 1s ease;
+    transition: -webkit-transform 1s ease;
+    transition: transform 1s ease;
+    transition: transform 1s ease, -webkit-transform 1s ease;
   }
   .main .grid_container .grid_item.portfolio .tit span {
     color: #ff9100;
+  }
+  .main .grid_container .grid_item.portfolio:hover .tit {
+    -webkit-transform: none;
+            transform: none;
+  }
+  .main .grid_container .grid_item.portfolio.in-view .tit {
+    -webkit-transform: rotate(25deg);
+            transform: rotate(25deg);
   }
   .main .grid_container .grid_item.tech {
     width: 100%;
@@ -1506,11 +1665,22 @@ body::-webkit-scrollbar-track {
   .main .grid_container .grid_item.ai {
     width: calc(50% - 0.5rem);
     aspect-ratio: 158/158;
+    opacity: 0;
+  }
+  .main .grid_container .grid_item.ai.in-view {
+    -webkit-animation: slide-down 0.6s forwards;
+            animation: slide-down 0.6s forwards;
+  }
+  .main .grid_container .grid_item.ai .bg {
+    mix-blend-mode: normal;
+    z-index: 0;
   }
   .main .grid_container .grid_item.ai .bg::before {
     content: none;
   }
   .main .grid_container .grid_item.ai .tit {
+    opacity: 0.8;
+    color: #ff9100;
     left: 1rem;
     bottom: 1rem;
     font-size: 2rem;
@@ -1519,6 +1689,11 @@ body::-webkit-scrollbar-track {
   .main .grid_container .grid_item.ad {
     width: calc(50% - 0.5rem);
     aspect-ratio: 158/158;
+    opacity: 0;
+  }
+  .main .grid_container .grid_item.ad.in-view {
+    -webkit-animation: slide-right 0.6s forwards;
+            animation: slide-right 0.6s forwards;
   }
   .main .grid_container .grid_item.ad .tit {
     font-size: 2.6rem;
@@ -1534,6 +1709,11 @@ body::-webkit-scrollbar-track {
   .main .grid_container .grid_item.gamification {
     width: calc(50% - 0.5rem);
     aspect-ratio: 158/158;
+    opacity: 0;
+  }
+  .main .grid_container .grid_item.gamification.in-view {
+    -webkit-animation: slide-left 0.6s forwards;
+            animation: slide-left 0.6s forwards;
   }
   .main .grid_container .grid_item.gamification .tit {
     font-size: 2rem;
@@ -1550,6 +1730,11 @@ body::-webkit-scrollbar-track {
   .main .grid_container .grid_item.weare {
     width: calc(50% - 0.5rem);
     aspect-ratio: 158/158;
+    opacity: 0;
+  }
+  .main .grid_container .grid_item.weare.in-view {
+    -webkit-animation: slide-top 0.6s forwards;
+            animation: slide-top 0.6s forwards;
   }
   .main .grid_container .grid_item.weare .bg::before {
     content: none;
