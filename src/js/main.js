@@ -184,6 +184,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const targetElements = document.querySelectorAll(
         ".grid_item.contact, .grid_item.portfolio, .grid_item.ai, .grid_item.ad, .grid_item.gamification, .grid_item.weare"
     );
+    const techElement = document.querySelector(".grid_item.tech");
+    const techVideo = techElement.querySelector(".video_tech");
 
     const mediaQuery = window.matchMedia("(max-width: 1023px)");
     let observer = null;
@@ -198,8 +200,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add("in-view");
+
+                        if (entry.target === techElement) {
+                            techVideo.play();
+                        }
                     } else {
                         entry.target.classList.remove("in-view");
+
+                        if (entry.target === techElement) {
+                            techVideo.pause();
+                        }
                     }
                 });
             },
@@ -208,7 +218,8 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         );
 
-        targetElements.forEach((element) => observer.observe(element)); 
+        targetElements.forEach((element) => observer.observe(element));
+        observer.observe(techElement);
     };
 
     const checkMediaQuery = (e) => {
@@ -220,9 +231,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 targetElements.forEach((element) =>
                     element.classList.remove("in-view")
                 );
+                techVideo.pause();
             }
         }
     };
+
     checkMediaQuery(mediaQuery);
     mediaQuery.addEventListener("change", checkMediaQuery);
 });
