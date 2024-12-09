@@ -4,6 +4,10 @@ body {
     @include scroll;
 }
 
+.scroll-lock {
+    overflow: hidden !important;
+}
+
 ::selection {
     background: $point-color;
     color: $white;
@@ -39,6 +43,7 @@ body {
         }
     
         h1 {
+            z-index: 1;
             a {
                 font-size: 0;
                 @include img_logo;
@@ -47,7 +52,7 @@ body {
             }
         }
     
-        nav {
+        .gnb_wrap {
             ul {
                 @include flex(center, flex-end, rem(60));
                 li {
@@ -70,10 +75,82 @@ body {
                 }
             }
         }
+
+        .mo_nav_btn {
+            display: none;
+            z-index: 1;
+            cursor: pointer;
+            .line {
+                width: rem(40);
+                height: rem(2);
+                background: $white;
+                transition: all 0.3s ease-in-out;
+            }
+            &.on {
+                display: block;
+                transition: all 0.3s ease-in-out;
+                transition-delay: 0.6s;
+                transform: rotate(45deg);
+
+                .line {
+                    &:nth-child(2) {
+                        opacity: 0;
+                        width: 0;
+                        height: 0;
+                    }
+                    &:nth-child(3) {
+                        transform: translateY(rem(-1.5)) rotate(-90deg);
+                    }
+                }
+            }
+        }
+
+        .mo_nav {
+            &.hide {
+                opacity: 0;
+                right: -100%;
+            }
+            position: fixed;
+            top: 0;
+            right: 0;
+            opacity: 1;
+            width: 100vw;
+            height: 100vh;
+            background: $black;
+            overflow-y: hidden;
+            transition: all 0.3s ease-in-out;
+
+            ul {
+                @include centerXY;
+                width: 100%;
+                padding-left: rem(60);
+                li {
+                    a {
+                        @include ftB;
+                        font-size: rem(50);
+                        color: $white;
+                    }
+                    & + li {
+                        margin-top: rem(50);
+                    }
+                }
+            }
+
+            .nav_footer {
+                @include centerX($bottom: rem(40));
+                width: 100%;
+                p {
+                    @include ftM;
+                    font-size: rem(18);
+                    text-align: center;
+                    color: $ft-gray-color;
+                }
+            }
+        }
     }
 
     .footer {
-        background: $bg-color;
+        background: $black;
         .inner {
             padding: rem(25) rem(20) rem(70);
         }
@@ -186,6 +263,52 @@ body {
 
 @media (min-width: 768px) and (max-width: 1023px) {
     .wrap {
+        .header {
+            top: rem(50);
+            height: auto;
+        
+            &.scroll {
+                background: transparent;
+            }
+        
+            .inner {
+                padding: 0 rem(40);
+            }
+        
+            h1 {
+                a {
+                    width: rem(240);
+                    height: rem(52);
+                }
+            }
+        
+            .gnb_wrap {
+                display: none;
+            }
+
+            .mo_nav_btn {
+                @include flex(center, space-between, rem(15), column);
+            }
+
+            .mo_nav {
+                display: block;
+            }
+        }
+
+        .contents {
+            .scroll_down {
+                display: none;
+                visibility: hidden !important;
+                opacity: 0 !important;
+            }
+    
+            .sc01 {
+                h2 {
+                    font-size: rem(90);
+                }
+            }
+        }
+
         .footer {
             p {
                 font-size: rem(22);
@@ -201,6 +324,69 @@ body {
 
 @media screen and (max-width: 767px) {
     .wrap {
+        .header {
+            top: rem(25);
+            height: auto;
+        
+            &.scroll {
+                background: transparent;
+            }
+        
+            .inner {
+                padding: 0 rem(20);
+            }
+        
+            h1 {
+                a {
+                    width: rem(150);
+                    height: rem(33);
+                }
+            }
+        
+            .gnb_wrap {
+                display: none;
+            }
+
+            .mo_nav_btn {
+                @include flex(center, space-between, rem(7), column);
+                .line {
+                    width: rem(24);
+                }
+            }
+
+            .mo_nav {
+                ul {
+                    padding-left: rem(40);
+                    li {
+                        a {
+                            font-size: rem(25);
+                        }
+                    }
+                }
+                .nav_footer {
+                    p {
+                        font-size: rem(14);
+                    }
+                }
+            }
+        }
+
+        .contents {
+            .scroll_down {
+                display: none;
+                visibility: hidden !important;
+                opacity: 0 !important;
+            }
+            .sc01 {
+                h2 {
+                    font-size: rem(60);
+                }
+                .scroll {
+                    transform: scale(0.8);
+                }
+            }
+        }
+
         .footer {
             p {
                 font-size: rem(14);

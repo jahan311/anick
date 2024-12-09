@@ -41,11 +41,13 @@
         }
 
         p {
+            max-width: rem(820);
             @include ftM;
             font-size: rem(18);
             line-height: rem(30);
             color: $ft-gray-color;
-            margin-bottom: rem(25);
+            margin: 0 auto rem(25);
+            word-break: keep-all;
         }
     }
     
@@ -64,6 +66,8 @@
                 font-size: rem(80);
                 color: $white;
                 margin: rem(20) 0;
+                display: block;
+                max-width: rem(500);
             }
     
             em {
@@ -74,10 +78,12 @@
             }
     
             p {
+                max-width: rem(545);
                 @include ftM;
                 font-size: rem(18);
                 line-height: rem(30);
                 color: $ft-gray-color;
+                word-break: keep-all;
             }
         }
 
@@ -201,6 +207,7 @@
         .ripple {
             @include absolute($top:76%, $left: -10%);
             width: 50%;
+            pointer-events: none;
         
             .center {
                 @include centerXY;
@@ -269,11 +276,13 @@
         }
 
         p {
+            max-width: rem(680);
             @include ftM;
             font-size: rem(18);
             line-height: rem(30);
             color: $ft-gray-color;
-            margin-bottom: rem(25);
+            margin: 0 auto;
+            word-break: keep-all;
         }
 
         .card_box {
@@ -292,6 +301,17 @@
                         margin-top: rem(430);
                         display: flex;
                         justify-content: flex-end;
+
+                        .txt_box {
+                            margin-left: rem(60);
+                        }
+                    }
+                    &:nth-last-child(2) {
+                        .txt_box {
+                            span {
+                                max-width: rem(560);
+                            }
+                        }
                     }
 
                     .img_box {
@@ -334,6 +354,8 @@
                             }
                         }
                         span {
+                            display: block;
+                            max-width: rem(525.4);
                             @include ftM;
                             font-size: rem(18);
                             color: $ft-gray-color;
@@ -371,6 +393,490 @@
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
+            }
+        }
+    }
+}
+
+@media (min-width: 1201px) and (max-width: 1400px)  {
+    :root {
+        font-size: 47.5%;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1200px) {
+    :root {
+        font-size: 42.5%;
+    }
+}
+
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    :root {
+        font-size: 62.5%;
+    }
+
+    .about {
+        .sc02 {
+            padding: rem(80) 0 rem(60);
+            &::before {
+                width: 100%;
+                max-width: rem(768);
+                aspect-ratio: 768/410;
+                height: auto;
+            }
+    
+            &::after {
+                width: rem(600);
+                height: rem(80);
+            }
+    
+            strong {
+                font-size: rem(50);
+            }
+    
+            em {
+                font-size: rem(24);
+            }
+    
+            p {
+                max-width: rem(650);
+                font-size: rem(26);
+                line-height: rem(40);
+                letter-spacing: rem(-0.52);
+                margin-bottom: rem(80);
+            }
+        }
+    
+        .sc03 {
+            position: relative;
+            width: 100%;
+            padding: rem(160) 0 0;
+    
+            .inner {
+                @include flex(center, center, rem(80), column);
+            }
+    
+            .tit_box {
+                text-align: center;
+
+                strong {
+                    font-size: rem(50);
+                    max-width: none;
+                }
+        
+                em {
+                    font-size: rem(24);
+                }
+        
+                p {
+                    max-width: rem(623);
+                    font-size: rem(26);
+                    line-height: rem(40);
+                    letter-spacing: rem(-0.52);
+                    margin: 0 auto;
+                }
+            }
+    
+            .card_box {
+                width: 100%;
+                max-width: none;
+                padding: 0 rem(40);
+                height: auto;
+                ul {
+                    width: 100%;
+                    @include flex(center, center, rem(40));
+                    flex-wrap: wrap;
+                    animation: none;
+    
+                    li {
+                        width: rem(324);
+                        height: rem(320);
+                        padding: rem(30) rem(30) rem(30) rem(40);
+                        margin-top: 0 !important;
+    
+                        p {
+                            font-size: rem(28);
+                            line-height: rem(31);
+                        }
+    
+                        span {
+                            font-size: rem(20);
+                            line-height: rem(31);
+                        }
+    
+                        &:hover {
+                            transform: none;
+                            box-shadow: none;
+                        }
+    
+                        i {
+                            width: rem(110);
+                            height: rem(110);
+                        }
+                    }
+                }
+            }
+    
+            .ripple {
+                display: none;
+            }
+
+            .blur {
+                @include centerX($top: 12%);
+                width: 60%;
+                border-radius: 50%;
+                padding: 20% 0;
+                opacity: 0.23;
+                transition: none;
+                animation: none;
+                filter: blur(80px);
+                pointer-events: none;
+                z-index: 0;
+            }
+        }
+
+        .sc04 {
+            padding: rem(200) 0 0;
+    
+            strong {
+                font-size: rem(50);
+            }
+    
+            em {
+                font-size: rem(24);
+            }
+    
+            p {
+                max-width: rem(620);
+                font-size: rem(26);
+                line-height: rem(40);
+                letter-spacing: rem(-0.52);
+            }
+    
+            .card_box {
+                ul {
+                    @include flex(center, center, 0, column);
+    
+                    li {
+                        width: 100%;
+                        & + li {
+                            margin-top: rem(314) !important;
+                        }
+
+                        &:nth-child(even) {
+                            .txt_box {
+                                margin-left: 0;
+                            }
+                        }
+                        &:nth-last-child(2) {
+                            .txt_box {
+                                span {
+                                    max-width: 96%;
+                                }
+                            }
+                        }
+    
+                        .img_box {
+                            width: 100%;
+                            aspect-ratio: 768/400;
+                            height: auto;
+                            overflow: hidden;
+    
+                            img {
+                                object-position: center;
+                                transition: none;
+                            }
+    
+                            &:hover {
+                                img {
+                                    width: 100%;
+                                    height: 100%;
+                                }
+                            }
+                        }
+    
+                        .txt_box {
+                            @include absolute($top:rem(385),$left:rem(60));
+                            p {
+                                max-width: none;
+                                font-size: rem(50);
+                                color: $white;
+                                line-height: rem(50);
+                                margin-bottom: rem(20);
+                                &::after {
+                                    font-size: rem(50);
+                                    margin-left: rem(5);
+                                }
+                            }
+                            span {
+                                max-width: 92%;
+                                font-size: rem(26);
+                                line-height: rem(40);
+                                letter-spacing: rem(-0.52);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .sc05 {
+            height: rem(740);
+            overflow: hidden;
+    
+            h5 {
+                padding-top: rem(150);
+                font-size: rem(50);
+            }
+    
+            .bg_video {
+                height: rem(740);
+            }
+        }
+    }
+
+    .wrap {
+        .footer {
+            .inner {
+                padding: rem(60) 0;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    :root {
+        font-size: 62.5%;
+    }
+
+    .about {
+        .sc02 {
+            padding: rem(80) 0 0;
+
+            &::before {
+                width: 100%;
+                max-width: rem(767);
+                aspect-ratio: 768/410;
+                height: auto;
+                background-size: cover;
+            }
+    
+            &::after {
+                width: 100%;
+                max-width: rem(767);
+                aspect-ratio: 600/80;
+                height: auto;
+            }
+    
+            strong {
+                font-size: rem(36);
+            }
+    
+            em {
+                font-size: rem(18);
+            }
+    
+            p {
+                max-width: calc(100% - rem(60));
+                font-size: rem(18);
+                line-height: rem(30);
+                letter-spacing: rem(-0.3);
+                margin-bottom: rem(40);
+                margin: 0 auto;
+            }
+        }
+    
+        .sc03 {
+            position: relative;
+            width: 100%;
+            padding: rem(80) 0 0;
+    
+            .inner {
+                @include flex(center, center, rem(60), column);
+            }
+    
+            .tit_box {
+                text-align: center;
+
+                strong {
+                    font-size: rem(36);
+                    max-width: none;
+                }
+        
+                em {
+                    font-size: rem(18);
+                }
+        
+                p {
+                    max-width: calc(100% - rem(60));
+                    font-size: rem(18);
+                    line-height: rem(30);
+                    letter-spacing: rem(-0.3);
+                    margin: 0 auto;
+                }
+            }
+    
+            .card_box {
+                width: 100%;
+                max-width: none;
+                padding: 0 rem(40);
+                height: auto;
+
+                ul {
+                    width: 100%;
+                    @include flex(center, center, rem(40));
+                    flex-wrap: wrap;
+                    animation: none;
+    
+                    li {
+                        width: rem(324);
+                        height: rem(320);
+                        padding: rem(20) rem(20) rem(20) rem(30);
+                        margin-top: 0 !important;
+    
+                        p {
+                            font-size: rem(24);
+                            line-height: rem(31);
+                        }
+    
+                        span {
+                            font-size: rem(16);
+                            line-height: rem(31);
+                        }
+    
+                        &:hover {
+                            transform: none;
+                            box-shadow: none;
+                        }
+    
+                        i {
+                            width: rem(110);
+                            height: rem(110);
+                            right: rem(20);
+                        }
+                    }
+                }
+            }
+    
+            .ripple {
+                display: none;
+            }
+
+            .blur {
+                @include centerX($top: 12%);
+                width: 60%;
+                border-radius: 50%;
+                padding: 20% 0;
+                opacity: 0.23;
+                transition: none;
+                animation: none;
+                filter: blur(80px);
+                pointer-events: none;
+                z-index: 0;
+            }
+        }
+
+        .sc04 {
+            padding: rem(80) 0 0;
+    
+            strong {
+                font-size: rem(36);
+            }
+    
+            em {
+                font-size: rem(18);
+            }
+    
+            p {
+                max-width: calc(100% - rem(60));
+                font-size: rem(18);
+                line-height: rem(30);
+                letter-spacing: rem(-0.3);
+                margin-bottom: rem(40);
+                margin: 0 auto;
+            }
+    
+            .card_box {
+                ul {
+                    @include flex(center, center, 0, column);
+                    padding-bottom : rem(360);
+    
+                    li {
+                        width: 100%;
+                        & + li {
+                            margin-top: rem(240) !important;
+                        }
+
+                        &:nth-child(even) {
+                            .txt_box {
+                                margin-left: 0;
+                            }
+                        }
+                        &:nth-last-child(2) {
+                            .txt_box {
+                                span {
+                                    max-width: 96%;
+                                }
+                            }
+                        }
+    
+                        .img_box {
+                            width: 100%;
+                            aspect-ratio: 768/400;
+                            height: auto;
+                            overflow: hidden;
+    
+                            img {
+                                object-position: center;
+                                transition: none;
+                            }
+    
+                            &:hover {
+                                img {
+                                    width: 100%;
+                                    height: 100%;
+                                }
+                            }
+                        }
+    
+                        .txt_box {
+                            @include absolute($top:rem(180),$left:rem(20));
+                            p {
+                                max-width: none;
+                                font-size: rem(36);
+                                color: $white;
+                                line-height: rem(46);
+                                margin-bottom: rem(20);
+                                &::after {
+                                    font-size: rem(36);
+                                    margin-left: rem(5);
+                                }
+                            }
+                            span {
+                                max-width: 92%;
+                                font-size: rem(18);
+                                line-height: rem(24);
+                                letter-spacing: rem(-0.3);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .sc05 {    
+            h5 {
+                font-size: rem(30);
+                line-height: rem(46);
+            }
+        }
+    }
+
+    .wrap {
+        .footer {
+            .inner {
+                padding: rem(40) 0;
             }
         }
     }
